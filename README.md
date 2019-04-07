@@ -1,2 +1,2 @@
 # vsf-rfq-form
-Request for quotation (RFQ) form integrated to product page.
+Request for quotation (RFQ) integration to Vue Storefront
