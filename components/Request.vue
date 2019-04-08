@@ -1,7 +1,7 @@
 <template>
   <div class="wholesale-modal-wrapper" v-show="displayed">
     <div class="wholesale-modal-center">
-      <header class="modal-header serif weight-700 bg-cl-secondary">
+      <header class="modal-header weight-700 bg-cl-secondary">
         <i @click="closeWholesaleModal" class="modal-close material-icons cl-bg-tertiary">close</i>
       </header>
       <div class="wholesale-modal-title">
@@ -19,7 +19,7 @@
             <div class="col-xs-12 col-sm-4 text"><div class="hidden-md title">Partnumber</div><i>{{ product.sku }}</i></div>
             <div class="col-xs-12 col-sm-2 text">
               <span class="hidden-md title">Qty</span>
-              <input v-model="product.qty" size="5" type="text" class="qty serif" name="amount" id="wholesale-amount">
+              <input v-model="product.qty" size="5" type="text" class="qty" name="amount" id="wholesale-amount">
             </div>
           </div>
           <div class="field">
@@ -30,7 +30,6 @@
               name="email"
               type="email"
               id="wholesale-email"
-              class="serif"
               :validations="[
                 {
                   condition: !$v.email.required && $v.email.$error,
@@ -46,10 +45,10 @@
           <div class="field">
             <label for="wholesale-email">Your request</label>
             <div class="input-box">
-              <textarea v-model="comment" name="comment" id="wholesale-comments" class="serif"/>
+              <textarea v-model="comment" name="comment" id="wholesale-comments"/>
             </div>
           </div>
-          <button type="submit" class="wholesale-btn serif">
+          <button type="submit" class="wholesale-btn">
             Submit
           </button>
         </form>
