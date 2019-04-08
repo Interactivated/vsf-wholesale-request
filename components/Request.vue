@@ -8,7 +8,7 @@
         <p>Request a quote</p>
       </div>
       <div class="wholesale">
-        <form @submit.prevent="wholesaleSubmit" class="wholesale-form" novalidate>
+        <form @submit.prevent="send" class="wholesale-form" novalidate>
           <div class="row wholesale-form-head">
             <div class="col-sm-6 title">Product</div>
             <div class="col-sm-4 title">Partnumber</div>
@@ -63,7 +63,6 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import store from '@vue-storefront/store'
 import i18n from '@vue-storefront/i18n'
 import { required, email } from 'vuelidate/lib/validators'
 
@@ -90,20 +89,23 @@ export default {
   },
   methods: {
     showWholesaleModal () {
-      store.dispatch('wholesale/showModal')
+      this.$store.dispatch('wholesale/showModal')
+
       this.isModalVisible = true
       this.email = ''
       this.comment = ''
       this.log = ''
+
       var html = document.getElementsByTagName('html')[0]
       html.setAttribute('class', 'no-scroll')
     },
     closeWholesaleModal () {
-      store.dispatch('wholesale/hideModal')
+      this.$store.dispatch('wholesale/hideModal')
+
       var html = document.getElementsByTagName('html')[0]
       html.removeAttribute('class', 'no-scroll')
     },
-    wholesaleSubmit: function (event) {
+    send: function (event) {
       if (this.$v.$invalid) {
         var errorEmailText = ''
         if (!this.$v.email.required) {
@@ -120,7 +122,7 @@ export default {
         return
       }
 
-      store.dispatch('wholesale/send', {
+      this.$store.dispatch('wholesale/send', {
         email: this.email,
         comment: this.comment,
         amount: this.product.qty,
@@ -205,9 +207,6 @@ $bg-secondary: color(secondary, $colors-background);
       border: 1px solid #aaa;
       border-radius: 4px;
       height: 30px;
-      background: rgb(222,222,222); /* Old browsers */
-      background: -moz-linear-gradient(top, rgba(222,222,222,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6-15 */
-      background: -webkit-linear-gradient(top, rgba(222,222,222,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10-25,Safari5.1-6 */
       background: linear-gradient(to bottom, rgba(222,222,222,1) 0%,rgba(204,204,204,1) 100%);
     }
     .wholesale-modal-title {
@@ -282,7 +281,6 @@ $bg-secondary: color(secondary, $colors-background);
         font-size: 14px;
         padding: 0 15px 0 10px;
         border-radius: 4px;
-        -webkit-box-shadow: none;
         box-shadow: none;
         cursor: pointer;
         background: #2e323f;
