@@ -1,5 +1,5 @@
-import { ExampleState } from '../types/ExampleState'
+import { RfqState } from '../types/RfqState'
 
-export const state: ExampleState = {
-  users: null
+export const state: RfqState = {
+  displayed: false
 }
