@@ -1,6 +1,9 @@
 # Wholesale Request module
 Request for quotation (RFQ) integration to Vue Storefront
 
+![Demo](docs/demo.png)
+![Demo Button](docs/demo-button.png)
+
 # Installation
 
 ```shell
@@ -30,7 +33,9 @@ git clone git@github.com:Interactivated/vsf-wholesale-request.git vue-storefront
   },
 ```
 
-Register:
+# Module registeration
+
+Go to `storefront/src/modules/index.ts`
 
 ```js
 ...
@@ -42,7 +47,9 @@ export const registerModules: VueStorefrontModule[] = [
 ]
 ```
 
-in ``
+# Integration to theme
+
+Open your `storefront/src/themes/default/pages/Product.vue`
 
 ```js
 <template>
