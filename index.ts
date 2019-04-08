@@ -2,8 +2,8 @@
 import { module } from './store'
 import { createModule } from '@vue-storefront/core/lib/module'
 
-export const KEY = 'rfq'
-export const Example = createModule({
+export const KEY = 'wholesale-request'
+export const WholesaleRequest = createModule({
   key: KEY,
   store: { modules: [{ key: KEY, module }]}
 })
