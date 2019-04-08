@@ -1,0 +1,13 @@
+{
+  "name": "@interactivated/wholesale-request",
+  "version": "1.0.0",
+  "description": "Wholesale Request (RFQ) module for Vue Storefront",
+  "license": "MIT",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

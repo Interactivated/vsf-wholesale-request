@@ -7,14 +7,14 @@ import * as types from './mutation-types'
 // it's a good practice for all actions to return Promises with effect of their execution
 export const actions: ActionTree<RfqState, any> = {
   showModal ({ commit }) {
-    commit('updateDisplayed', true)
+    commit(types.SET_DISPLAYED, true)
   },
   hideModal ({ commit }) {
-    commit('updateDisplayed', false)
+    commit(types.SET_DISPLAYED, false)
   },
   send (context, { email, comment, amount, sku, name }) {
     return new Promise((resolve, reject) => {
-      fetch(config.wholesale.send_request_endpoint, {
+      fetch(`${config.wholesale.endpoint}/send`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         mode: 'cors',

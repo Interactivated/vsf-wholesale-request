@@ -3,13 +3,13 @@ Request for quotation (RFQ) integration to Vue Storefront
 
 # Installation
 
-```
-git clone git@github.com:Interactivated/vsf-rfq-form.git vue-storefront/src/modules/wholesale-request
+```shell
+git clone git@github.com:Interactivated/vsf-wholesale-request.git vue-storefront/src/modules/wholesale-request
 ```
 
 ```
 "wholesale": {
-    "send_request_endpoint": "https://localhost:8080/api/ext/wholesale/send"
+    "endpoint": "https://localhost:8080/api/ext/wholesale"
 },
 ```
 
@@ -28,4 +28,43 @@ git clone git@github.com:Interactivated/vsf-rfq-form.git vue-storefront/src/modu
       }
     }
   },
+```
+
+Register:
+
+```js
+...
+import { WholesaleRequest } from './wholesale-request';
+
+export const registerModules: VueStorefrontModule[] = [
+  ...,
+  WholesaleRequest
+]
+```
+
+in ``
+
+```js
+<template>
+<wholesale-request />
+
+<div class="row m0 add-to-buttons">
+  <button @click="showWholesaleModal" class="bg-cl-mine-shaft button-full fs-medium fs-medium sans-serif py20 px10 brdr-none mt15 cl-white">Request an offer for large quantities</button>
+</div>
+
+</template>
+
+<script>
+...
+import WholesaleRequest from '@vue-storefront/wholesale-request/components/Request.vue'
+
+export default {
+  components: {
+    ...,
+    WholesaleRequest
+  },
+  mixins: [... WholesaleRequest],
+  ...
+}
+</script>
 ```
