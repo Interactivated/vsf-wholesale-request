@@ -173,7 +173,7 @@ $bg-secondary: color(secondary, $colors-background);
   .wholesale-modal-center {
     position: fixed;
     width: 800px;
-    height: 500px;
+    height: 522px;
     left: 50%;
     top: 50%;
     margin-left: -400px;
