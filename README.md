@@ -56,7 +56,7 @@ in ``
 
 <script>
 ...
-import WholesaleRequest from '@vue-storefront/wholesale-request/components/Request.vue'
+import WholesaleRequest from '@interactivated/wholesale-request/components/Request.vue'
 
 export default {
   components: {
